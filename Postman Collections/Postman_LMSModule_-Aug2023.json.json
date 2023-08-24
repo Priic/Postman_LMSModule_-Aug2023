@@ -720,7 +720,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"programDescription\": \"{{updateprogramBynameDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n  \r\n}\r\n",
+							"raw": "{\r\n  \"programDescription\": \"{{updateprogramBynameDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1283,47 +1283,47 @@
 	],
 	"variable": [
 		{
-			"id": "52198cba-b554-4646-b500-541e63580e77",
+			"id": "f08cab22-9d9f-4b95-b253-9262befd711e",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "2d10677d-3338-4ce6-afce-d652a171a20b",
+			"id": "65544540-a85e-419f-afdc-4693d93f9aee",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "028bb818-7fbf-42b8-b4c0-a8fd2d16b638",
+			"id": "a66bf53b-de1e-4c7e-bc1a-2203edccad6e",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "02008f6d-5284-4a80-8bf6-42fc2f246df8",
+			"id": "77e04ea5-7623-48b7-8a6a-c91e2855e101",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "b17f98d5-6747-4299-b356-bc6d56c6beea",
+			"id": "2443b051-1d79-4380-bf53-d78449a95a17",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "62c2d8c9-13c5-450e-97ac-9314991313eb",
+			"id": "ae662dc7-7b97-4e0b-902d-7340ca0df0a6",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "fb8159c2-c931-4dc0-bd27-2278db3176b5",
+			"id": "ae22d4b2-3aef-42c0-a320-8021c09dc8ef",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "c3c16401-6f39-4afc-8831-b994c64736a9",
+			"id": "de8f411c-9431-413e-af93-2aa61eba815a",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "69aab149-d499-40a6-8c2a-792593fffd75",
+			"id": "f39eb418-4370-4229-97b3-b6384ec42dca",
 			"key": "batchId",
 			"value": ""
 		}
