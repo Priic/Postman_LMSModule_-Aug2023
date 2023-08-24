@@ -610,6 +610,66 @@
 					"response": []
 				},
 				{
+					"name": "Delete program by program Id Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"});\r",
+									"\r",
+									"// const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a4fa006d-48b9-4eed-a508-1ae591a3c879",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Create a new Program 2",
 					"event": [
 						{
@@ -732,7 +792,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete program by program Id Copy",
+					"name": "Delete program by program Name",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1223,47 +1283,47 @@
 	],
 	"variable": [
 		{
-			"id": "73c1973e-6cc8-4b02-8992-ab41df054c9b",
+			"id": "0ee5cfc1-466f-406d-b549-d151254cd2c4",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "a8c0e569-ebc0-4705-923e-ecac33e915e9",
+			"id": "bf52aa65-a7d3-4fcc-afad-1f976a069e0b",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "551f4833-fcda-4fb1-a873-ccd6d2d127b5",
+			"id": "2e18ebec-baa2-4e77-a224-df4dcff9e446",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "e00d10b8-d16c-40bf-b4e0-58857a3c46de",
+			"id": "ab021a1b-90f1-41de-a2f3-ff18cfafe745",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "0140185e-9d79-4be7-a91a-9c84d35102e8",
+			"id": "a16c7e28-3b68-4bbd-b0d8-93e48cc5c935",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "a37ca6d3-a7c2-4023-b019-99425f3d8316",
+			"id": "39d6c8cf-c2a2-41f7-92b2-6053b62b7aac",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "3cbf3073-4873-4816-b38e-a467dfc32458",
+			"id": "b82399f8-9865-42cc-a13c-0d8d4f06ec9b",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "ea8876c3-b1d2-469d-acf2-116693631313",
+			"id": "cf3464fa-debe-4191-b7ed-5138f91bafda",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "780bb45d-14e9-4e86-9aa9-b32603d32634",
+			"id": "e68e75ad-dcf1-48cd-af9f-4b656d84fd87",
 			"key": "batchId",
 			"value": ""
 		}
