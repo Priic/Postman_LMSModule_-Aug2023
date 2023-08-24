@@ -1295,7 +1295,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Batch by  invalid batchId Copy",
+					"name": "Update Batch by  invalid batchId",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1455,47 +1455,47 @@
 	],
 	"variable": [
 		{
-			"id": "4cfc49f3-0002-484b-a02a-4317d5a47b27",
+			"id": "45866ed1-aae1-4650-8357-badceba5a90b",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "481163e9-d7bf-4f9c-9771-6e830e452ee2",
+			"id": "8cf1c2ef-729c-4bfd-950b-449c488ac969",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "b4db3762-8d26-4b06-bae4-ee24fd731761",
+			"id": "7491f17d-6a50-4e76-9066-bfe44bbd980c",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "d2cec766-99c4-4453-84c2-5a4040ca7a67",
+			"id": "27253ffd-3212-476d-ba6b-e800e9419413",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "78ba0338-c21e-40df-aace-e398d5777f1e",
+			"id": "823f9342-01ae-4081-b663-6813b4e4c7e0",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "527df1ff-ca0b-4113-b682-b7f830ebfe3a",
+			"id": "4f60ab18-f655-4b9b-93ca-9bf3303a7fb9",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "758049bc-f4e6-4cb2-88d2-cee16ceee726",
+			"id": "d59fc80d-13da-4627-b857-4ce7c035b236",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "bedbd4a2-4672-4433-b678-360990e4dc23",
+			"id": "94a4db82-fbaf-4e1e-869e-06897bba44d5",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "45073cde-aabd-4f3d-9b8d-8de0f860b98c",
+			"id": "327ce4ca-d1eb-4de7-8432-0d9f9725fe2d",
 			"key": "batchId",
 			"value": ""
 		}
