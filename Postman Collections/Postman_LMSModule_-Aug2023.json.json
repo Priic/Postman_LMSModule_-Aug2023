@@ -720,7 +720,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"programDescription\": \"{{updateprogramBynameDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1283,47 +1283,47 @@
 	],
 	"variable": [
 		{
-			"id": "f08cab22-9d9f-4b95-b253-9262befd711e",
+			"id": "db3b4123-f9fa-416a-8314-c5c6a632c13f",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "65544540-a85e-419f-afdc-4693d93f9aee",
+			"id": "7b3ef40b-6f4a-414c-bf22-acb88a695825",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "a66bf53b-de1e-4c7e-bc1a-2203edccad6e",
+			"id": "9a5d3aaa-0c73-4b5d-b430-54e2cdd6b293",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "77e04ea5-7623-48b7-8a6a-c91e2855e101",
+			"id": "c2c37033-1339-4191-b4c7-fca5aed01045",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "2443b051-1d79-4380-bf53-d78449a95a17",
+			"id": "d8e3860e-1cee-4977-8c69-bfbcc6734e98",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "ae662dc7-7b97-4e0b-902d-7340ca0df0a6",
+			"id": "9fdc364d-ae38-445f-97e5-effd66797b03",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "ae22d4b2-3aef-42c0-a320-8021c09dc8ef",
+			"id": "0c79431d-45a1-417b-8e1d-50657713ef96",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "de8f411c-9431-413e-af93-2aa61eba815a",
+			"id": "382dba25-0cc2-4be1-8692-e16278724300",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "f39eb418-4370-4229-97b3-b6384ec42dca",
+			"id": "9e0998c0-83c0-466b-b89c-0d87ec55d5ce",
 			"key": "batchId",
 			"value": ""
 		}
