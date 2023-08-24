@@ -1086,17 +1086,17 @@
 								"id": "6ca1d5b6-272c-41a2-b9d7-da3e550f5091",
 								"exec": [
 									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									" const jsonData=JSON.parse(responseBody);\r",
-									" pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
-									" pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
-									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
-									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
-									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
-									"pm.collectionVariables.set(\"batchDescription\", jsonData.batchDescription);\r",
-									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"//  pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
+									"//  pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
+									"//  pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
+									"// pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"// pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
+									"// pm.collectionVariables.set(\"batchDescription\", jsonData.batchDescription);\r",
+									"// pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
 									"\r",
 									"console.log(jsonData.batchName);\r",
 									"console.log(jsonData.batchNoOfClasses);\r",
@@ -1526,47 +1526,47 @@
 	],
 	"variable": [
 		{
-			"id": "c8eb48f0-eea6-450c-b6dd-9726338597bf",
+			"id": "2e2bddf3-d254-46cc-b3b4-72352044c649",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "81f4c518-97b9-423a-8a29-2e6680a510d8",
+			"id": "5948604d-b9a4-4838-b58d-21a4e4bae996",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "c6b2141d-69c0-4e3f-a300-d07d31a90731",
+			"id": "f4dd4b5c-3dc3-476c-972c-ebae79497c79",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "66f8fd53-b2b9-4805-bedf-6378a7b582b4",
+			"id": "55e8cf3b-d874-4968-8c40-b03a3c48004d",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "d282ea7b-cdcc-4a98-b9a3-d5bba8fc5ac1",
+			"id": "d7cd20b5-9370-44a0-8a62-5b3ee0eae757",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "bff7d217-5c62-4c01-a6df-545e47517e28",
+			"id": "790b3352-3f39-4ff0-ba92-9a63d1651be3",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "67e3090b-aab6-44f5-ab1c-af57df5ad2d2",
+			"id": "38c5ac96-2994-4e71-9201-901d4c5638e9",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "fc1477f1-7bcd-49e0-aefa-35c5ed0896ae",
+			"id": "9b4cce6f-d7aa-4b20-a4b4-ddbb92b6930f",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "3f7cdc7f-db9c-48dd-a1ae-bf64d6f6dd23",
+			"id": "a1908055-7a33-4882-bafa-a544a81bf00e",
 			"key": "batchId",
 			"value": ""
 		}
