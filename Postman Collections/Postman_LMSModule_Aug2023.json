@@ -871,8 +871,8 @@
 									"    pm.response.to.have.status(404);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Status code name has string 'Not found' \", function () {\r",
-									"    pm.response.to.have.status(\"Not found\");\r",
+									"pm.test(\"Status code name has string 'Not Found' \", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
 									"});\r",
 									"\r",
 									"const jsonData=JSON.parse(responseBody);\r",
@@ -1526,52 +1526,52 @@
 	],
 	"variable": [
 		{
-			"id": "fc29d003-0975-49c5-9d10-3ffef39117ce",
+			"id": "8c8319eb-8dca-4944-a526-27d68412f5a8",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "7a80c174-d16f-4717-acfe-452fe17ea823",
+			"id": "86dd7d8b-ec19-49c7-a5ab-ec5fe90d7b87",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "07b2d15e-ac9e-40f8-820d-d63c58b48560",
+			"id": "9fec8eb4-3c2b-4455-b0ca-e6fb9c24de9f",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "729aea22-cc80-480a-9a8c-3d5ee2db6fed",
+			"id": "9fbe6406-94df-4045-992c-5225eff8a2e0",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "6514e473-b691-4b4a-9cdf-37d7c0ede8a2",
+			"id": "72e3ea95-9c52-4f5d-8efd-df0c8a5c4788",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "e2be269f-c522-41b7-af40-38601eca9151",
+			"id": "4bbb19ba-7264-4a8b-b944-f14b2baee615",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "c60c68ee-31da-4047-9fbc-b0ca6e248f00",
+			"id": "bb8cb483-e773-45dd-9b7f-163c773629a0",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "b0d0b634-dabe-41d0-904f-841ffe99f051",
+			"id": "96d27cc5-885e-4cd9-9ca8-b582ef5afb08",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "90f4962d-bbe8-443f-a4d0-228bf9eac911",
+			"id": "dc8611a1-c55d-4789-8a6d-ca7a9f525b90",
 			"key": "batchId",
 			"value": ""
 		},
 		{
-			"id": "6243b2b0-84c0-4e14-89e5-fb838ae30894",
+			"id": "863699d5-6291-4948-9236-f5f7942c6c9f",
 			"key": "batchDescription",
 			"value": ""
 		}
