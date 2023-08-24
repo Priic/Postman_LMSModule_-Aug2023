@@ -618,7 +618,13 @@
 						"url": "{{baseurl}}/batches"
 					},
 					"response": []
-				},
+				}
+			],
+			"id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
+		},
+		{
+			"name": "Delete Module",
+			"item": [
 				{
 					"name": "Delete Batch by  Batch Id",
 					"event": [
@@ -719,119 +725,54 @@
 						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
 					},
 					"response": []
-				},
-				{
-					"name": "Create a  Program 2",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
-								"exec": [
-									"const serialNumber = _.random(0,10)\r",
-									"pm.variables.set(\"serialNumber\", serialNumber )\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
-								"exec": [
-									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string 'Created' \", function () {\r",
-									"    pm.response.to.have.status(\"Created\");\r",
-									"});\r",
-									"\r",
-									"const jsonData=JSON.parse(responseBody);\r",
-									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
-									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
-									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "dfaf0283-fe5c-4063-86c1-63aade05c092",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programNameExcel}}\",\r\n  \"programStatus\": \"{{programStatusExcel}}\"\r\n \r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}/saveprogram"
-					},
-					"response": []
 				}
 			],
-			"id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
-		},
-		{
-			"name": "Delete Module",
-			"item": [],
 			"id": "c3bde4f0-c743-41ba-8ce5-c1c3061f0929"
 		}
 	],
 	"variable": [
 		{
-			"id": "dad28b45-c383-4766-994e-97ff77aee851",
+			"id": "268f89a0-4613-4559-9f44-53ac16a78ca4",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "35e1e33c-5e47-4e9a-9b8d-a220529420cb",
+			"id": "f71776fa-fe5a-4b66-8bb7-848c4d29871d",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "963c123e-44e2-47c1-bccd-f26c0e430d8c",
+			"id": "0dd13725-d201-4b00-9eb3-e119b593c419",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "b763529a-7ce7-4540-9616-cb0e6c59d212",
+			"id": "6b466103-c11d-4d88-a6fd-d53dc54cff29",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "b17d4352-132c-43c7-bc0b-dd0aa0116734",
+			"id": "ee7cf085-95cf-4f4a-b008-bd72d2910232",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "c428cf13-e4e8-4d01-9400-77c294b57eed",
+			"id": "0ba61303-c252-48dc-b24e-f56dcace05ba",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "654c66a4-9c9d-4305-9797-689050fb5ec2",
+			"id": "74c4628d-4ed6-435b-8433-81c64d7f3f80",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "d0049d23-06d8-4873-9d41-c90d39582b37",
+			"id": "fa93e174-f7b0-4a86-9a0c-3e99fe8a6d79",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "9706f44f-571d-4ccd-9bf8-b9621b5ab267",
+			"id": "c6e6c70b-8bcd-48a1-9954-0f85f46b498a",
 			"key": "batchId",
 			"value": ""
 		}
