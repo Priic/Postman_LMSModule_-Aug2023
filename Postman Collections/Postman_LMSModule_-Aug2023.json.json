@@ -732,6 +732,65 @@
 					"response": []
 				},
 				{
+					"name": "Update Program Status by InvalidProgram Name",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Update a Program#1 with status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'ok' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7b2a6a33-5f6d-4dae-b368-29cf8e7c19be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/program/{{programName}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete program by program Name",
 					"event": [
 						{
@@ -1281,47 +1340,47 @@
 	],
 	"variable": [
 		{
-			"id": "303f6ec5-acf1-4e11-aae5-ca00b49e8efb",
+			"id": "8cf5dec5-2978-4090-aed7-57cfca5041e1",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "2a1ff71a-84fb-45d3-92ea-ce0565f126f9",
+			"id": "d7053868-0786-4f65-8a38-9fea20c74a34",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "beedf049-f108-408f-9ae5-efe185a4b3c3",
+			"id": "4461e836-d774-48b7-ba09-132fc48b9bfa",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "9ac590a5-b0db-42fe-a8ba-cdf7f56fd72e",
+			"id": "751c1cf7-7719-4e5e-b540-88311d5d7d39",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "8ca956b0-16f1-46c2-a7b6-07e2149c88ba",
+			"id": "39008a7a-a7f5-4fd0-9eb3-1cc705f7f3a4",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "f747d89c-5a20-41cc-b782-c14f22c2179e",
+			"id": "2108f000-4907-40c2-bd9c-b1e160ea72d0",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "459e4435-7158-4ec8-b15e-b10c7f65ba39",
+			"id": "78903d7d-cbb1-4757-9d45-7ae9db996489",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "d26af828-7c38-45bd-9e3c-7fa4182039f6",
+			"id": "89306367-5494-46a3-ae7f-e3599824fc0e",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "1342c1dc-11ee-4974-ae1a-8f4df9ce40f4",
+			"id": "7b101bdb-77a0-4a35-a1c0-dfb512da8aa4",
 			"key": "batchId",
 			"value": ""
 		}
