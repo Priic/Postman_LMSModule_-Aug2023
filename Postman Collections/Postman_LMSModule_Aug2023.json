@@ -213,7 +213,7 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Status code name has string 'ok' \", function () {\r",
+									"pm.test(\"Status code name has string 'OK' \", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
 									"\r",
@@ -1526,52 +1526,52 @@
 	],
 	"variable": [
 		{
-			"id": "87f1b920-d3ea-49ab-b0cb-62f4c8611626",
+			"id": "bcd8f348-42b2-4b5d-973e-e3cd583048ce",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "7eaf4e9f-f7a7-4789-a145-5e04728c294d",
+			"id": "027396b0-01f5-4b74-b32b-04d0d3ee661a",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "df99fa6d-7dac-4d10-a928-6be23bd6be90",
+			"id": "75320f06-6f26-4f52-bec9-5af65273b1a2",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "1b897ff7-b385-4a6b-85a9-b7667592a7df",
+			"id": "038d38f4-80ca-4c2d-b770-67e87e9d3635",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "f7bb68fa-c7e5-407b-96f6-a4282171b6ca",
+			"id": "3eb350d8-5cdd-4578-944c-c0e1cd088b56",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "af3b17eb-6624-4355-a2e2-224d77d5ea63",
+			"id": "20dd7c25-5889-4592-824e-52b1671ba921",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "e56f89ec-9ac7-4dae-9f4f-a57dc79ed402",
+			"id": "8393556d-06cc-47e2-ae5b-f953b54eb3ba",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "8cbea986-487b-45c3-b37a-a2f83e3e0b62",
+			"id": "b66fbf9c-47bf-40b1-b6f3-46719c9ba4ce",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "ed5265bb-68e4-4039-b962-dbdd4cd83262",
+			"id": "bbdf10b5-c2bc-44ea-b9e4-e98506681a67",
 			"key": "batchId",
 			"value": ""
 		},
 		{
-			"id": "8e51fe85-29d1-464a-9977-f7ae0c73abdf",
+			"id": "5919249b-1d32-48de-b83f-be7bfe23bb91",
 			"key": "batchDescription",
 			"value": ""
 		}
