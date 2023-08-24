@@ -798,7 +798,7 @@
 					"response": []
 				},
 				{
-					"name": "get user by id Copy",
+					"name": "get Batch by batch ID",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -982,47 +982,47 @@
 	],
 	"variable": [
 		{
-			"id": "4ef4a13f-1adc-436e-a7e9-378c9fd3cbef",
+			"id": "d0914a07-7bdb-412d-b964-f6820c1484f4",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "b9b2ce2e-b719-42d3-8e09-d4eea75e0e6e",
+			"id": "306be0e7-9961-45a9-8178-e6b4041d78e9",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "0b971550-41d7-436a-93d6-c1f590317768",
+			"id": "792f7f53-3836-424a-8c6e-ce697d0870a0",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "b90df480-9042-4278-897f-f84a14e5886f",
+			"id": "352b621d-d055-4550-b807-66ffe054e9f4",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "d8c1f15b-ec52-408c-85e6-e3e307aa6dc6",
+			"id": "d931505b-9d61-4c92-9092-3e8675b425b6",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "75f9a823-c0c4-438c-99fa-8ecd7583f058",
+			"id": "7643e4eb-0c56-46df-a299-82035c30f6ac",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "100fbd76-66b3-438c-93e2-e6f1ed022e5f",
+			"id": "aa8fd24b-e3de-41a7-8fbb-ea83b3acfe52",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "d3e3b7b0-05a2-4941-85a2-bcf767763fe7",
+			"id": "b7a7578f-bfbd-4480-a8b6-d0347db14fd3",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "4e1d1945-27e5-405a-8bba-63d4e12fee8d",
+			"id": "db72560c-3d91-4b9c-a98b-0ca52d023406",
 			"key": "batchId",
 			"value": ""
 		}
