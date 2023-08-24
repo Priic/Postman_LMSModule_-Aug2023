@@ -573,6 +573,8 @@
 									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
 									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
 									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
+									"pm.collectionVariables.set(\"batchDescription\", jsonData.batchDescription);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
 									"\r",
 									"console.log(jsonData.batchName);\r",
 									"console.log(jsonData.batchNoOfClasses);\r",
@@ -616,6 +618,254 @@
 							}
 						},
 						"url": "{{baseurl}}/batches"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by batchname Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dddd0d24-bc11-46c5-850e-c3fbca2dea1b",
+								"exec": [
+									"pm.test(\"the endpoint returns the expected status code\", () => {\r",
+									"  \r",
+									"  const expectedStatusCodes = [200, 404];\r",
+									"\r",
+									"  pm.expect(pm.response.code).to.be.oneOf(\r",
+									"    expectedStatusCodes,\r",
+									"    `expected response status to be one of ${expectedStatusCodes} but got ${pm.response.code}.`\r",
+									"  );\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "da038070-2e7c-420a-a2a0-6fda49d3286d",
+								"exec": [
+									"const SerialNo= _.random(000,200)\r",
+									"pm.variables.set(\"SerialNo\", SerialNo )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c0ca7fc0-6c43-4f31-b3f5-bb51820e0aa9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/batchName/Aug23-TeamPri-SDET-728SDET10-12"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by  batchId Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//const batchId= _.random(00,400)",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript",
+								"id": "35dd26ab-3458-47e5-b9cb-e93403924701"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"  ",
+									"  //const expectedStatusCodes = [200, 404];",
+									"",
+									"  ",
+									" "
+								],
+								"type": "text/javascript",
+								"id": "df2f976a-59a2-4216-b990-e595aa416db4"
+							}
+						}
+					],
+					"id": "7f9beaed-a4a1-48ca-8366-a81a82b116fe",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"batchId\": {{batchId}},\r\n    \"batchName\": \"Jun23-sparkplugs-SDET-052\",\r\n    \"batchDescription\": \"Testing\",\r\n    \"batchStatus\": \"Open\",\r\n    \"batchNoOfClasses\": 2023,\r\n    \"programId\": 1,\r\n    \"programName\": \"updating\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/batches/{{batchId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by batchname invalid Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "a20b35f2-6b84-4c77-9458-f5bc6a075395"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "3cf7b0b7-efb7-4af2-87b3-e663ceb64a5b"
+							}
+						}
+					],
+					"id": "911fbbee-1775-4fe7-ba96-7dfbda8b5ebc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/batchId/{{invalid}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by programId Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									" "
+								],
+								"type": "text/javascript",
+								"id": "dc88c7ed-2e25-49f9-b5be-f320d997ffd3"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"the endpoint returns the expected status code\", () => {\r",
+									"  \r",
+									"  const expectedStatusCodes = [200, 400];\r",
+									"\r",
+									"  pm.expect(pm.response.code).to.be.oneOf(\r",
+									"    expectedStatusCodes,\r",
+									"    `expected response status to be one of ${expectedStatusCodes} but got ${pm.response.code}.`\r",
+									"  );\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "1137abb1-cb8d-47d0-80c3-c6b5063fb1c6"
+							}
+						}
+					],
+					"id": "96a1e87a-9ed4-4fcb-a16b-32b271242263",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/program/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fa1162ed-708e-4b9d-9bd3-2f5bacd13079",
+								"exec": [
+									"//const batchId= _.random(00,400)\r",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c613ee2-d19e-492f-aaaf-5e743e663fd9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "d5954b92-344e-43c2-8e94-ba6a03ea427b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/batchId/1023"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all user Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7e52437-a6bf-407e-91bc-2750b37b35b4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const response=pm.response.json();\r",
+									"console.log(response.status);\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9097d355-591d-44de-8a40-e6add3564556",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms/batches"
 					},
 					"response": []
 				}
@@ -732,47 +982,47 @@
 	],
 	"variable": [
 		{
-			"id": "268f89a0-4613-4559-9f44-53ac16a78ca4",
+			"id": "0f3e857b-18bb-44a7-ae90-3fe4ef3abac6",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "f71776fa-fe5a-4b66-8bb7-848c4d29871d",
+			"id": "8cd3cca7-cfc6-4505-a7af-542d1be4d839",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "0dd13725-d201-4b00-9eb3-e119b593c419",
+			"id": "8df5eff0-cea8-486f-a04e-7985167ee0f9",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "6b466103-c11d-4d88-a6fd-d53dc54cff29",
+			"id": "81d8b1be-a0df-4c6c-8475-c09f68818e22",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "ee7cf085-95cf-4f4a-b008-bd72d2910232",
+			"id": "978bdd32-4f5f-4b37-b82f-c8fca814edc4",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "0ba61303-c252-48dc-b24e-f56dcace05ba",
+			"id": "ed3f3a0a-2128-4557-aeac-24019c42164a",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "74c4628d-4ed6-435b-8433-81c64d7f3f80",
+			"id": "69c1f330-6dbe-496e-b751-06442f2a1b21",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "fa93e174-f7b0-4a86-9a0c-3e99fe8a6d79",
+			"id": "aec2e553-b8f7-47e5-aaa8-1b5d14b5fccc",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "c6e6c70b-8bcd-48a1-9954-0f85f46b498a",
+			"id": "0af0cd89-5ec9-46e4-a426-88062c62e77a",
 			"key": "batchId",
 			"value": ""
 		}
