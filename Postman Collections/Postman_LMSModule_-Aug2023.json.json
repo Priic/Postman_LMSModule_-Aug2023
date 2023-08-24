@@ -737,7 +737,50 @@
 					"response": []
 				},
 				{
-					"name": "Update user by  batchId Copy",
+					"name": "get Batch by programId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									" "
+								],
+								"type": "text/javascript",
+								"id": "dc88c7ed-2e25-49f9-b5be-f320d997ffd3"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"the endpoint returns the expected status code\", () => {\r",
+									"  \r",
+									"  const expectedStatusCodes = [200, 400];\r",
+									"\r",
+									"  pm.expect(pm.response.code).to.be.oneOf(\r",
+									"    expectedStatusCodes,\r",
+									"    `expected response status to be one of ${expectedStatusCodes} but got ${pm.response.code}.`\r",
+									"  );\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"id": "1137abb1-cb8d-47d0-80c3-c6b5063fb1c6"
+							}
+						}
+					],
+					"id": "96a1e87a-9ed4-4fcb-a16b-32b271242263",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/program/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch by  batchId",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -822,49 +865,6 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{baseurl}}/batches/batchId/{{invalid}}"
-					},
-					"response": []
-				},
-				{
-					"name": "get Batch by programId",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									" "
-								],
-								"type": "text/javascript",
-								"id": "dc88c7ed-2e25-49f9-b5be-f320d997ffd3"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"the endpoint returns the expected status code\", () => {\r",
-									"  \r",
-									"  const expectedStatusCodes = [200, 400];\r",
-									"\r",
-									"  pm.expect(pm.response.code).to.be.oneOf(\r",
-									"    expectedStatusCodes,\r",
-									"    `expected response status to be one of ${expectedStatusCodes} but got ${pm.response.code}.`\r",
-									"  );\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"id": "1137abb1-cb8d-47d0-80c3-c6b5063fb1c6"
-							}
-						}
-					],
-					"id": "96a1e87a-9ed4-4fcb-a16b-32b271242263",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseurl}}/batches/program/{{programId}}"
 					},
 					"response": []
 				}
@@ -981,47 +981,47 @@
 	],
 	"variable": [
 		{
-			"id": "ff744e0c-acc1-4a5e-916f-fb2aa7e477b0",
+			"id": "9545d4fb-bcf7-429f-99c2-8129b092413a",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "c3313105-9f8f-4708-9b4c-b846325f78c1",
+			"id": "ae47477d-eb8f-48e7-8a7f-64df08253f76",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "710804c9-d164-4e5e-bab1-106f6af90fac",
+			"id": "779f2b93-286e-410b-bdae-dae8c1047852",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "8ac3334c-b236-4065-9348-668b6f4c635c",
+			"id": "3339e761-90f1-48f5-94b5-a789f026ae5f",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "23dcc0f3-0f04-4033-94b5-695f57eb5600",
+			"id": "60cae71b-9a98-4743-97c8-d278f295caf6",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "62622a38-15d8-4fcd-9aac-dfe521e6a048",
+			"id": "46fbacd4-2d25-4337-9952-99b84612d7e7",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "3a22af91-492d-43e0-bf11-8932355314ad",
+			"id": "02f9b188-635a-4e86-b589-12c15c32cf8c",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "e67ac90c-a9cb-4c49-a107-e8db35bc9fa9",
+			"id": "b33db16c-42fb-4558-a505-aacb159a8e3b",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "1734621d-3b87-494d-acf3-f7f0302c0952",
+			"id": "8a5c4fb7-12ff-4015-8fd1-de6261679a56",
 			"key": "batchId",
 			"value": ""
 		}
