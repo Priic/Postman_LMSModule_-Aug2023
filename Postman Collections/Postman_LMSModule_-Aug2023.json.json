@@ -785,17 +785,18 @@
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "35dd26ab-3458-47e5-b9cb-e93403924701",
 								"exec": [
 									"//const batchId= _.random(00,400)",
 									"//pm.variables.set(\"batchId\", batchId )"
 								],
-								"type": "text/javascript",
-								"id": "35dd26ab-3458-47e5-b9cb-e93403924701"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "test",
 							"script": {
+								"id": "df2f976a-59a2-4216-b990-e595aa416db4",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -806,8 +807,7 @@
 									"  ",
 									" "
 								],
-								"type": "text/javascript",
-								"id": "df2f976a-59a2-4216-b990-e595aa416db4"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -820,7 +820,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"batchId\": {{batchId}},\r\n    \"batchName\": \"Jun23-sparkplugs-SDET-052\",\r\n    \"batchDescription\": \"Testing\",\r\n    \"batchStatus\": \"Open\",\r\n    \"batchNoOfClasses\": 2023,\r\n    \"programId\": 1,\r\n    \"programName\": \"updating\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"batchId\": {{batchId}},\r\n    \"batchName\": \"{{batchName}}\",\r\n    \"batchDescription\": \"{{updateBatchDescriptionByBatchIdExcel}}\",\r\n    \"batchStatus\": \"Open\",\r\n    \"batchNoOfClasses\": 2023,\r\n    \"programId\": 1,\r\n    \"programName\": \"updating\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -981,47 +981,47 @@
 	],
 	"variable": [
 		{
-			"id": "9545d4fb-bcf7-429f-99c2-8129b092413a",
+			"id": "eb1669ed-6486-469f-9460-fadfe9f7d31c",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "ae47477d-eb8f-48e7-8a7f-64df08253f76",
+			"id": "c48b6a93-f3e6-4c04-9fe0-54db46b8a059",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "779f2b93-286e-410b-bdae-dae8c1047852",
+			"id": "e14335c9-8b83-4b79-aeba-8b0051abee7a",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "3339e761-90f1-48f5-94b5-a789f026ae5f",
+			"id": "983d9fa6-2b0e-4dfb-abe9-7d9f1c276aad",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "60cae71b-9a98-4743-97c8-d278f295caf6",
+			"id": "3eeb592c-768f-4a32-b4f8-c4bc24d2c33e",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "46fbacd4-2d25-4337-9952-99b84612d7e7",
+			"id": "59dc5f6a-f3cd-43f7-9a5a-09190988991b",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "02f9b188-635a-4e86-b589-12c15c32cf8c",
+			"id": "4a9276c4-1490-40b8-830b-da7fd9977436",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "b33db16c-42fb-4558-a505-aacb159a8e3b",
+			"id": "90266c53-5711-4d17-ad18-9b44272f86bb",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "8a5c4fb7-12ff-4015-8fd1-de6261679a56",
+			"id": "2b17a72d-b9be-4ba8-bee1-ff279fc6a089",
 			"key": "batchId",
 			"value": ""
 		}
