@@ -1078,6 +1078,72 @@
 					"response": []
 				},
 				{
+					"name": "create a  Batch which already exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ca1d5b6-272c-41a2-b9d7-da3e550f5091",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									" const jsonData=JSON.parse(responseBody);\r",
+									" pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
+									" pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
+									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
+									"pm.collectionVariables.set(\"batchDescription\", jsonData.batchDescription);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"\r",
+									"console.log(jsonData.batchName);\r",
+									"console.log(jsonData.batchNoOfClasses);\r",
+									"console.log(jsonData.batchStatus);\r",
+									"console.log(jsonData.programId);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f559c365-fc0a-4d1a-9135-9e0c7a06896c",
+								"exec": [
+									"const SerialNo= _.random(000,10)\r",
+									"pm.variables.set(\"SerialNo\", SerialNo )\r",
+									"\r",
+									"//const programId= _.random(50,100)\r",
+									"//pm.variables.set(\"programId\", programId )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "f8ce4e34-3830-47d3-af8d-46c06f3b36f0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\": \"{{batchName}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/batches"
+					},
+					"response": []
+				},
+				{
 					"name": "get Batch by batch ID",
 					"event": [
 						{
@@ -1295,6 +1361,66 @@
 					"response": []
 				},
 				{
+					"name": "Delete program by program Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"});\r",
+									"\r",
+									"// const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "57d886d8-4ed4-4db5-8df8-1d1bebc221a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Update Batch by  invalid batchId",
 					"event": [
 						{
@@ -1388,114 +1514,53 @@
 		},
 		{
 			"name": "Delete Module",
-			"item": [
-				{
-					"name": "Delete program by program Id",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
-								"exec": [
-									"const serialNumber = _.random(000,40000)\r",
-									"pm.variables.set(\"serialNumber\", serialNumber )\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
-								"exec": [
-									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string 'Created' \", function () {\r",
-									"    pm.response.to.have.status(\"Ok\");\r",
-									"});\r",
-									"\r",
-									"// const jsonData=JSON.parse(responseBody);\r",
-									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
-									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
-									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "57d886d8-4ed4-4db5-8df8-1d1bebc221a2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "c3bde4f0-c743-41ba-8ce5-c1c3061f0929"
 		}
 	],
 	"variable": [
 		{
-			"id": "1fb81ea6-b486-493c-b9fa-3c709a6e6889",
+			"id": "e69c0228-97b2-4e94-b178-c10e6a71d894",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "b41f0472-79f9-4535-8715-0a3afb16145a",
+			"id": "f7bc9adc-531b-4475-8886-00b35abaf636",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "bf24a774-06bb-4838-99f0-95c911dd420f",
+			"id": "048cc318-cdf8-423f-a65c-091ea6f14d83",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "a66b2a76-7e40-425d-8917-36f26b0c56dd",
+			"id": "9a1f1bc9-afab-40da-8431-6068841500ae",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "98247a96-8ff5-42ad-9c46-d02307c9d27c",
+			"id": "277ee39c-2881-4b01-a5d8-0d8e22de8530",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "34af1b3a-0424-4913-8021-6b17f1ce89ca",
+			"id": "b4dc3ce0-6fd0-45c1-8ff7-6b45a99a8356",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "241b70a5-2db2-44ce-8b1a-f5f3ec2371fe",
+			"id": "6ed39d0d-c8fb-40b9-b890-cb4a7455c27b",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "84f334b4-316d-4886-bf9f-ce3206dbf8e7",
+			"id": "f8529678-e5cf-49b9-8a47-e09edf4e2596",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "47014e3c-b37f-42ce-bbc5-e643f050f9d2",
+			"id": "d5d874bb-9983-434b-bdc5-e2c9f56286db",
 			"key": "batchId",
 			"value": ""
 		}
