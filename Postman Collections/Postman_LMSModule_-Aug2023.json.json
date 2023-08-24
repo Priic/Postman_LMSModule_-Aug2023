@@ -9,6 +9,66 @@
 			"name": "Program Module",
 			"item": [
 				{
+					"name": "Get all program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ab8170d7-77f0-4650-a10d-8902fdc6a711",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}//allPrograms"
+					},
+					"response": []
+				},
+				{
 					"name": "Create a new Program",
 					"event": [
 						{
@@ -251,6 +311,66 @@
 					"response": []
 				},
 				{
+					"name": "Get  program by program Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"// const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3ce00bad-77e4-427a-861b-5f2375f47093",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/programs/{{programId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "Create a  Program with status as Null",
 					"event": [
 						{
@@ -430,126 +550,6 @@
 					"response": []
 				},
 				{
-					"name": "Get all program",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
-								"exec": [
-									"const serialNumber = _.random(000,40000)\r",
-									"pm.variables.set(\"serialNumber\", serialNumber )\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
-								"exec": [
-									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string 'Created' \", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"const jsonData=JSON.parse(responseBody);\r",
-									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
-									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
-									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "ab8170d7-77f0-4650-a10d-8902fdc6a711",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}//allPrograms"
-					},
-					"response": []
-				},
-				{
-					"name": "Get  program by program Id",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
-								"exec": [
-									"const serialNumber = _.random(000,40000)\r",
-									"pm.variables.set(\"serialNumber\", serialNumber )\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
-								"exec": [
-									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string 'Created' \", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									"// const jsonData=JSON.parse(responseBody);\r",
-									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
-									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
-									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "3ce00bad-77e4-427a-861b-5f2375f47093",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseUrl}}/programs/{{programId}}"
-					},
-					"response": []
-				},
-				{
 					"name": "Delete program by program Id",
 					"event": [
 						{
@@ -606,6 +606,69 @@
 							}
 						},
 						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Program 2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(10,20)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "edc785ee-b9e3-4b63-813e-02793aa929d3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programNameExcel}}\",\r\n  \"programStatus\": \"{{programStatusExcel}}\"\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
 					},
 					"response": []
 				}
@@ -1041,47 +1104,47 @@
 	],
 	"variable": [
 		{
-			"id": "14e55a39-8426-4bd2-9e67-0a761b1ee430",
+			"id": "231f48ca-7283-4ab2-b669-eda9f7781d3d",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "3b17f094-9130-4455-b035-7c3e0eeeedc0",
+			"id": "5bf43558-38ec-4cff-92d5-90706ab0bab7",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "72564335-7d29-475a-96ad-92f9591bc366",
+			"id": "401b4dfc-00aa-429b-9dea-22540e134b50",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "9363b5bd-3aea-458e-b736-5386c3f2f828",
+			"id": "d2acc8e0-690e-4009-8fa8-c4f5266c5905",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "0c337598-0be4-4b8b-91e9-0026551c1c33",
+			"id": "d2b663e0-14c2-4cf5-90df-3115b970e4f4",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "c6ba21bc-4612-4d1a-83f0-3a417b7ebfed",
+			"id": "a86120c4-cbab-486a-94f2-6f443805320b",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "5ed6133e-a96a-44a4-b0d2-e9f5c396d258",
+			"id": "600ae829-af38-4d95-9ed6-a0967d51f4e6",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "9bad7588-c524-4293-842c-52dcc6f7eba9",
+			"id": "81c7b274-0652-470e-aae1-4add63d19d5d",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "3000c779-c466-4969-bb3c-37c10425e0ea",
+			"id": "781dc25d-0234-4622-82ea-e71d8e958905",
 			"key": "batchId",
 			"value": ""
 		}
