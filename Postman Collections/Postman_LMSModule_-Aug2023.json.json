@@ -1066,7 +1066,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\": \"{{batchName}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
+							"raw": "{\r\n\"batchDescription\": \"{{batchDescriptionExcel}}\",\r\n\"batchName\": \"{{batchNameExcel}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClassesExcel}}\",\r\n\"batchStatus\": \"{{batchStatusExcel}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1520,47 +1520,47 @@
 	],
 	"variable": [
 		{
-			"id": "50c73d5a-f1f3-4d8d-9d3a-54acf36c8484",
+			"id": "f7c97448-b88e-4567-89e9-a2830d9fe2cd",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "c8929e0e-b0f7-43ad-9640-88fffdb8b031",
+			"id": "d8bce4d8-101e-4f91-8e64-d9cef05ec072",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "50dbb2d4-3d51-4f73-97d2-d35d55d3b4d4",
+			"id": "621b445c-97e9-4de9-b06b-f4cd1d9432b1",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "17a9770c-ff7e-477d-bb80-7ecf8294fe9d",
+			"id": "94f9a5b3-dcf3-4c13-ba6f-8e22107836e9",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "cf30cad1-1b5b-468d-947c-e27767a46322",
+			"id": "10f8a9c2-99a8-4847-ae32-b42d12c2e8b9",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "3933e3ae-14a9-417d-b65c-b4d192529592",
+			"id": "96fabfe3-5c22-4cee-8825-2701a09571a8",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "849d4468-907a-4e21-bc8e-11ea7bc3308e",
+			"id": "10525893-fe17-4667-981e-8bbaf955a972",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "950a8342-15e6-4e8d-8f2f-583c34694060",
+			"id": "6b722111-90d6-4e0e-b7dd-f51cefca1497",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "3c12aa79-b9a9-41cc-91bb-163f99f3b8eb",
+			"id": "8516de4e-19a4-491c-8031-4de3f6fcb6d3",
 			"key": "batchId",
 			"value": ""
 		}
