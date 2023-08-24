@@ -848,6 +848,65 @@
 						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
 					},
 					"response": []
+				},
+				{
+					"name": "Update Program Status by InvalidProgram Name",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Update a Program#1 with status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'ok' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7b2a6a33-5f6d-4dae-b368-29cf8e7c19be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/program/{{programName}}"
+					},
+					"response": []
 				}
 			],
 			"id": "c22821fe-2d1e-419c-927d-e7d9fafe661e"
@@ -1195,6 +1254,99 @@
 					"response": []
 				},
 				{
+					"name": "Delete Batch by  Batch Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8dc242fd-75c6-4de6-98e6-cef4a02532d8",
+								"exec": [
+									"//const batchId= _.random(00,400)",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bcd2c1d8-4018-4512-a992-8bef86c1c150",
+								"exec": [
+									"",
+									"  ",
+									"  //const expectedStatusCodes = [200, 404];",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b15ceb72-b410-4fcf-8f97-209eff016fa0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseurl}}/batches/{{batchId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Batch by  invalid batchId Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "35dd26ab-3458-47e5-b9cb-e93403924701",
+								"exec": [
+									"//const batchId= _.random(00,400)",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "df2f976a-59a2-4216-b990-e595aa416db4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"  ",
+									"  //const expectedStatusCodes = [200, 404];",
+									"",
+									"  ",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "995d6aaa-e7f5-4f42-85a6-c5cc814e4396",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"batchId\": {{batchId}},\r\n    \"batchName\": \"{{batchName}}\",\r\n    \"batchDescription\": \"{{updateBatchDescriptionByBatchIdExcel}}\",\r\n    \"batchStatus\": \"{{batchStatus}}\",\r\n    \"batchNoOfClasses\": {{batchNoOfClasses}},\r\n    \"programId\": \"{{programId}}\",\r\n    \"programName\": \"{{programName}}\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/batches/{{batchId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "get user by batchname invalid Copy",
 					"event": [
 						{
@@ -1237,47 +1389,6 @@
 		{
 			"name": "Delete Module",
 			"item": [
-				{
-					"name": "Delete Batch by  Batch Id",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8dc242fd-75c6-4de6-98e6-cef4a02532d8",
-								"exec": [
-									"//const batchId= _.random(00,400)",
-									"//pm.variables.set(\"batchId\", batchId )"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "bcd2c1d8-4018-4512-a992-8bef86c1c150",
-								"exec": [
-									"",
-									"  ",
-									"  //const expectedStatusCodes = [200, 404];",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "b15ceb72-b410-4fcf-8f97-209eff016fa0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": "{{baseurl}}/batches/{{batchId}}"
-					},
-					"response": []
-				},
 				{
 					"name": "Delete program by program Id",
 					"event": [
@@ -1340,110 +1451,51 @@
 				}
 			],
 			"id": "c3bde4f0-c743-41ba-8ce5-c1c3061f0929"
-		},
-		{
-			"name": "Update Program Status by InvalidProgram Name",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
-						"exec": [
-							"pm.test( \"Update a Program#1 with status code 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Status code name has string 'ok' \", function () {\r",
-							"    pm.response.to.have.status(\"OK\");\r",
-							"});\r",
-							"\r",
-							"const jsonData=JSON.parse(responseBody);\r",
-							"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
-							"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
-							"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
-							"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
-							"\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "7b2a6a33-5f6d-4dae-b368-29cf8e7c19be",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{updateprogramStatusBynameExcel}}\"\r\n  \r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "{{baseUrl}}/program/{{programName}}"
-			},
-			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "31886b70-3a98-4a2f-9f52-7c110d357783",
+			"id": "4cfc49f3-0002-484b-a02a-4317d5a47b27",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "3b1a92f2-cd4b-4e63-a7bf-7c9343fdc6a1",
+			"id": "481163e9-d7bf-4f9c-9771-6e830e452ee2",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "93a1c0a5-25c7-487b-89d9-8de9bc9790cf",
+			"id": "b4db3762-8d26-4b06-bae4-ee24fd731761",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "4438bf85-e8bd-4c53-a5a1-e3f25123d021",
+			"id": "d2cec766-99c4-4453-84c2-5a4040ca7a67",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "9a42540e-348e-4037-ad8f-a91fd16259df",
+			"id": "78ba0338-c21e-40df-aace-e398d5777f1e",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "150ba0e2-ba61-4291-b4b2-861a923e63dc",
+			"id": "527df1ff-ca0b-4113-b682-b7f830ebfe3a",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "fa1d2d4c-687a-49ba-acf1-22cd27e3bedb",
+			"id": "758049bc-f4e6-4cb2-88d2-cee16ceee726",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "e3a74614-eb8b-4cfc-955e-9171c29ce9ed",
+			"id": "bedbd4a2-4672-4433-b678-360990e4dc23",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "1dc948eb-f132-476b-b6b0-cbe785399f50",
+			"id": "45073cde-aabd-4f3d-9b8d-8de0f860b98c",
 			"key": "batchId",
 			"value": ""
 		}
