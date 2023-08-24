@@ -1352,23 +1352,23 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "a20b35f2-6b84-4c77-9458-f5bc6a075395",
 								"exec": [
 									"pm.test(\"Status code is 400\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
 									"});"
 								],
-								"type": "text/javascript",
-								"id": "a20b35f2-6b84-4c77-9458-f5bc6a075395"
+								"type": "text/javascript"
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"id": "3cf7b0b7-efb7-4af2-87b3-e663ceb64a5b",
 								"exec": [
 									""
 								],
-								"type": "text/javascript",
-								"id": "3cf7b0b7-efb7-4af2-87b3-e663ceb64a5b"
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1379,7 +1379,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseurl}}/batches/batchId/{{invalid}}"
+						"url": "{{baseurl}}/batches/batchId/{{batchId}}"
 					},
 					"response": []
 				}
@@ -1455,47 +1455,47 @@
 	],
 	"variable": [
 		{
-			"id": "45866ed1-aae1-4650-8357-badceba5a90b",
+			"id": "1fb81ea6-b486-493c-b9fa-3c709a6e6889",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "8cf1c2ef-729c-4bfd-950b-449c488ac969",
+			"id": "b41f0472-79f9-4535-8715-0a3afb16145a",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "7491f17d-6a50-4e76-9066-bfe44bbd980c",
+			"id": "bf24a774-06bb-4838-99f0-95c911dd420f",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "27253ffd-3212-476d-ba6b-e800e9419413",
+			"id": "a66b2a76-7e40-425d-8917-36f26b0c56dd",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "823f9342-01ae-4081-b663-6813b4e4c7e0",
+			"id": "98247a96-8ff5-42ad-9c46-d02307c9d27c",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "4f60ab18-f655-4b9b-93ca-9bf3303a7fb9",
+			"id": "34af1b3a-0424-4913-8021-6b17f1ce89ca",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "d59fc80d-13da-4627-b857-4ce7c035b236",
+			"id": "241b70a5-2db2-44ce-8b1a-f5f3ec2371fe",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "94a4db82-fbaf-4e1e-869e-06897bba44d5",
+			"id": "84f334b4-316d-4886-bf9f-ce3206dbf8e7",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "327ce4ca-d1eb-4de7-8432-0d9f9725fe2d",
+			"id": "47014e3c-b37f-42ce-bbc5-e643f050f9d2",
 			"key": "batchId",
 			"value": ""
 		}
