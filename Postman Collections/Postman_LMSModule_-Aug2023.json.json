@@ -548,6 +548,117 @@
 						"url": "{{baseUrl}}/programs/{{programId}}"
 					},
 					"response": []
+				}
+			],
+			"id": "c22821fe-2d1e-419c-927d-e7d9fafe661e"
+		},
+		{
+			"name": "Batch Module",
+			"item": [
+				{
+					"name": "create a new  Batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ca1d5b6-272c-41a2-b9d7-da3e550f5091",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									" const jsonData=JSON.parse(responseBody);\r",
+									" pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
+									" pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
+									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
+									"\r",
+									"console.log(jsonData.batchName);\r",
+									"console.log(jsonData.batchNoOfClasses);\r",
+									"console.log(jsonData.batchStatus);\r",
+									"console.log(jsonData.programId);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f559c365-fc0a-4d1a-9135-9e0c7a06896c",
+								"exec": [
+									"const SerialNo= _.random(000,10)\r",
+									"pm.variables.set(\"SerialNo\", SerialNo )\r",
+									"\r",
+									"//const programId= _.random(50,100)\r",
+									"//pm.variables.set(\"programId\", programId )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c135dedf-9a89-417d-950c-7f9b35e878cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\": \"{{batchName}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/batches"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Batch by  Batch Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8dc242fd-75c6-4de6-98e6-cef4a02532d8",
+								"exec": [
+									"//const batchId= _.random(00,400)",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bcd2c1d8-4018-4512-a992-8bef86c1c150",
+								"exec": [
+									"",
+									"  ",
+									"  //const expectedStatusCodes = [200, 404];",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b15ceb72-b410-4fcf-8f97-209eff016fa0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseurl}}/batches/{{batchId}}"
+					},
+					"response": []
 				},
 				{
 					"name": "Delete program by program Id",
@@ -670,163 +781,57 @@
 					"response": []
 				}
 			],
-			"id": "c22821fe-2d1e-419c-927d-e7d9fafe661e"
+			"id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
 		},
 		{
-			"name": "Batch Module",
-			"item": [
-				{
-					"name": "create a new  Batch",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6ca1d5b6-272c-41a2-b9d7-da3e550f5091",
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"\r",
-									" const jsonData=JSON.parse(responseBody);\r",
-									" pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
-									" pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
-									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
-									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
-									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
-									"\r",
-									"console.log(jsonData.batchName);\r",
-									"console.log(jsonData.batchNoOfClasses);\r",
-									"console.log(jsonData.batchStatus);\r",
-									"console.log(jsonData.programId);\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f559c365-fc0a-4d1a-9135-9e0c7a06896c",
-								"exec": [
-									"const SerialNo= _.random(000,10)\r",
-									"pm.variables.set(\"SerialNo\", SerialNo )\r",
-									"\r",
-									"//const programId= _.random(50,100)\r",
-									"//pm.variables.set(\"programId\", programId )"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "c135dedf-9a89-417d-950c-7f9b35e878cd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\": \"{{batchName}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{baseurl}}/batches"
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Batch by  Batch Id",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "8dc242fd-75c6-4de6-98e6-cef4a02532d8",
-								"exec": [
-									"//const batchId= _.random(00,400)",
-									"//pm.variables.set(\"batchId\", batchId )"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "bcd2c1d8-4018-4512-a992-8bef86c1c150",
-								"exec": [
-									"",
-									"  ",
-									"  //const expectedStatusCodes = [200, 404];",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "b15ceb72-b410-4fcf-8f97-209eff016fa0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": "{{baseurl}}/batches/{{batchId}}"
-					},
-					"response": []
-				}
-			],
-			"id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
+			"name": "New Folder",
+			"item": [],
+			"id": "c3bde4f0-c743-41ba-8ce5-c1c3061f0929"
 		}
 	],
 	"variable": [
 		{
-			"id": "e7495fff-6797-45e6-a6ec-24e6beb594b6",
+			"id": "d82cbde3-e21e-4de5-a141-902897724ebf",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "a5445f68-539d-45eb-aa65-8148491e4140",
+			"id": "f5ffff97-4702-404f-b468-21a0fdac02c0",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "eedd800b-240c-4c27-9a6d-3f1c92477510",
+			"id": "00f0ebbd-b6e6-4e00-b7de-6808df4261e6",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "df0c9d87-94f8-457e-a73a-c0c90ddaceb2",
+			"id": "80d9efd0-ece0-41a5-ab78-976eaf7fedd9",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "961298a0-8498-4297-83c0-38c7b1e1e4f8",
+			"id": "2592bf56-f56e-4efe-8632-531de615233c",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "b4b50cd0-8f8e-44fb-bde7-61fc38daa77d",
+			"id": "c2a54bed-49cf-43c4-9ef2-2a1c372aa7d6",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "72d379f7-a0ca-40b2-b690-ad9b289a27c9",
+			"id": "f4c14beb-fcaf-44fa-964b-4314df55e21e",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "26df99f8-bf19-4baa-8c1b-9096b25561b1",
+			"id": "63e5374e-e334-4262-a502-a8e5dd354904",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "a976f4cb-4f68-4237-8aaa-a03db2ce4f53",
+			"id": "d79f59e0-7dc6-4e49-afc7-9de03e473062",
 			"key": "batchId",
 			"value": ""
 		}
