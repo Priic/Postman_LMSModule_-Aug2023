@@ -556,6 +556,40 @@
 			"name": "Batch Module",
 			"item": [
 				{
+					"name": "Get all Batches",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7e52437-a6bf-407e-91bc-2750b37b35b4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"const response=pm.response.json();\r",
+									"console.log(response.status);\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9097d355-591d-44de-8a40-e6add3564556",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/batches"
+					},
+					"response": []
+				},
+				{
 					"name": "create a new  Batch",
 					"event": [
 						{
@@ -622,6 +656,44 @@
 					"response": []
 				},
 				{
+					"name": "get Batch by batch ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fa1162ed-708e-4b9d-9bd3-2f5bacd13079",
+								"exec": [
+									"//const batchId= _.random(00,400)\r",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c613ee2-d19e-492f-aaaf-5e743e663fd9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "d5954b92-344e-43c2-8e94-ba6a03ea427b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/batches/batchId/{{batchId}}"
+					},
+					"response": []
+				},
+				{
 					"name": "get user by batchname Copy",
 					"event": [
 						{
@@ -661,7 +733,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{baseurl}}/batches/batchName/Aug23-TeamPri-SDET-728SDET10-12"
+						"url": "{{baseurl}}/batches/batchName/{{batchName}}"
 					},
 					"response": []
 				},
@@ -796,78 +868,6 @@
 						"url": "{{baseurl}}/batches/program/{{programId}}"
 					},
 					"response": []
-				},
-				{
-					"name": "get Batch by batch ID",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "fa1162ed-708e-4b9d-9bd3-2f5bacd13079",
-								"exec": [
-									"//const batchId= _.random(00,400)\r",
-									"//pm.variables.set(\"batchId\", batchId )"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "1c613ee2-d19e-492f-aaaf-5e743e663fd9",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "d5954b92-344e-43c2-8e94-ba6a03ea427b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseurl}}/batches/batchId/{{batchId}}"
-					},
-					"response": []
-				},
-				{
-					"name": "Get all Batches",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "e7e52437-a6bf-407e-91bc-2750b37b35b4",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"const response=pm.response.json();\r",
-									"console.log(response.status);\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "9097d355-591d-44de-8a40-e6add3564556",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{baseUrl}}/batches"
-					},
-					"response": []
 				}
 			],
 			"id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
@@ -982,47 +982,47 @@
 	],
 	"variable": [
 		{
-			"id": "197fdee3-f369-4a10-bc52-f807b1c4175c",
+			"id": "1112bf39-09ca-460e-8b66-b469fc704b55",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "c87f6d00-ce25-4135-9d4d-4bf14db8bc66",
+			"id": "6b257ff5-ddee-4e15-8dba-875b725b34d8",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "bde40564-06cc-4a6e-94ca-f14d7d473a5c",
+			"id": "e807cc0e-bc4a-4790-a805-d3b22d7ad342",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "0ad0a250-4a67-473a-b7d5-002775fa98b1",
+			"id": "16465b28-0f25-43bb-81af-d46284c0d23f",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "b16eb320-501e-45d5-a3da-7b73922ff08a",
+			"id": "d73fa319-19e6-40af-ba28-745c1091361a",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "aab93422-7bf1-403b-a8cb-6568c1ab29f6",
+			"id": "c57c9781-6a60-41d0-8815-c42dd0fc44c1",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "3abc3134-8f59-4a10-94f9-025ecf57e6c7",
+			"id": "e73ba965-453a-4876-b959-2a0f58cb5838",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "08765e75-f7b9-4723-8af1-cf5ff14adf8c",
+			"id": "19ef494a-bee7-466c-84c8-3f0d5f47e5ec",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "3964a651-25ac-45d0-8f32-6428bf3636f2",
+			"id": "519dc16a-7192-4dd3-be32-da1972e468c6",
 			"key": "batchId",
 			"value": ""
 		}
