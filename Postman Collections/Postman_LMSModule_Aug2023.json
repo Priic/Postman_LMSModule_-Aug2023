@@ -514,8 +514,8 @@
 									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Status code name has string 'Created' \", function () {\r",
-									"    pm.response.to.have.status(\"bad request\");\r",
+									"pm.test(\"Status code name has string 'Bad Request' \", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
 									"});\r",
 									"\r",
 									"const jsonData=JSON.parse(responseBody);\r",
@@ -1526,52 +1526,52 @@
 	],
 	"variable": [
 		{
-			"id": "1bfca8f1-ae65-4768-9287-e2a186e10217",
+			"id": "71299801-1655-4f54-9013-cd474626403e",
 			"key": "baseUrl",
 			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms"
 		},
 		{
-			"id": "6ee9a30f-497d-4fef-b3b1-7761dc499fdf",
+			"id": "99f98c63-2974-4f8f-b172-4905077da805",
 			"key": "programName",
 			"value": ""
 		},
 		{
-			"id": "d49b0a9b-0e39-465e-bad6-27a9c7b8f190",
+			"id": "db08717f-1658-4dd0-a2da-9543dcab2e82",
 			"key": "programDescription",
 			"value": ""
 		},
 		{
-			"id": "ac49814d-93c6-46e1-b8ec-3792f5978898",
+			"id": "5e4f92ca-c001-42b8-bb43-6816dc8c308f",
 			"key": "programStatus",
 			"value": ""
 		},
 		{
-			"id": "53139d23-06b8-4bcf-80fd-2493e88ae76a",
+			"id": "2530973d-b25e-40df-b543-5f635d04bc90",
 			"key": "programId",
 			"value": ""
 		},
 		{
-			"id": "eb47449a-d971-421c-9a61-04b955d76257",
+			"id": "a8c65db9-11fc-4597-bf88-60b9b4ae2eb5",
 			"key": "batchName",
 			"value": ""
 		},
 		{
-			"id": "52c72900-df4d-4d4f-b7ca-e73ea92eb9d1",
+			"id": "38b0e663-d7c0-483d-af0b-ba47e66098f8",
 			"key": "batchNoOfClasses",
 			"value": ""
 		},
 		{
-			"id": "f8f70649-22c3-4787-84f0-9d5b0455a52a",
+			"id": "1395d9b4-efb4-48ab-af0b-f08b3bdc065d",
 			"key": "batchStatus",
 			"value": ""
 		},
 		{
-			"id": "0c224a0e-6c59-4fee-bb74-b57e73d3edee",
+			"id": "26cb8fdf-ee90-457d-a88c-3cc6ee1bbfe3",
 			"key": "batchId",
 			"value": ""
 		},
 		{
-			"id": "e69a0e83-8417-4689-a404-f707137c25d6",
+			"id": "fb432359-b940-4d2a-a147-ea485a1b79ff",
 			"key": "batchDescription",
 			"value": ""
 		}
