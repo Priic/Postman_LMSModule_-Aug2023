@@ -1,0 +1,843 @@
+{
+	"info": {
+		"_postman_id": "26b7c544-af0d-499c-8c09-463ee590b749",
+		"name": "LMS Module API testing Aug 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Program Module",
+			"item": [
+				{
+					"name": "Create a new Program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(10,20)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "9b2578ac-6da4-436f-84f7-3a1531061a1c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programNameExcel}}\",\r\n  \"programStatus\": \"{{programStatusExcel}}\"\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Program which exist already",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'already exist' \", function () {\r",
+									"    pm.response.to.have.status(\"program already exist\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"// pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"// pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"// pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "e7eb100d-4f3b-4c8e-ba6e-35569668fdb8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"programDescription\": \"{{programDescription}}\",\r\n\"programName\": \"{{programName}}\",\r\n\"programStatus\": \"{{programStatus}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by Program Name",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Update a Program#1 with status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'ok' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "71933ac0-832e-463e-8732-f0214b951c32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{updateprogramBynameDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/program/{{programName}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update by Program ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Update a Program#1 with status code 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'ok' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3db3475d-49fb-4e9d-80d0-2f8e8c12628a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"programId\": \"{{programId}}\",\r\n  \"programDescription\": \"{{updateprogramByIdDescriptionExcel}}\",\r\n  \"programName\": \"{{programName}}\",\r\n  \"programStatus\": \"{{programStatus}}\"\r\n  \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/putprogram/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a  Program with status as Null",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"bad request\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"// pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"// pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"// pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "d8f6b069-e18f-41fc-b0a2-a2626d5399f5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"Learning RestAssured API\",\r\n  \"programName\": \"Aug23-TeamPri-SDET-102\",\r\n  \"programStatus\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a  Program with Program Name Null",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"bad request\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"// pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"// pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "598e3db7-fb7f-45e9-b770-a3231ce0d79e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"Learning RestAssured API\",\r\n  \"programName\": \"\",\r\n  \"programStatus\": \"Active\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a  Program with All mandatory field missing",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"bad request\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"// pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"// pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "f427a2e5-a804-4a0d-889e-36655fd1e15b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"Learning RestAssured API\",\r\n  \"programName\": \"\",\r\n  \"programStatus\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all program",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "ab8170d7-77f0-4650-a10d-8902fdc6a711",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}//allPrograms"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  program by program Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"\r",
+									"// const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3ce00bad-77e4-427a-861b-5f2375f47093",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/programs/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete program by program Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(000,40000)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"});\r",
+									"\r",
+									"// const jsonData=JSON.parse(responseBody);\r",
+									"// pm.globals.set(\"programName\", \"jsonData.programName\");\r",
+									"// pm.globals.set(\"programDescription\", \"jsonData.programDescription\");\r",
+									"// pm.globals.set(\"programStatus\", \"jsonData.programStatus\");\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "57d886d8-4ed4-4db5-8df8-1d1bebc221a2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/deletebyprogid/{{programId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a  Program 2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8100a9a2-e4ff-4566-808a-b1ddd80e159b",
+								"exec": [
+									"const serialNumber = _.random(0,10)\r",
+									"pm.variables.set(\"serialNumber\", serialNumber )\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "80fd9af8-ce77-42b3-809a-2ce8525e0ae4",
+								"exec": [
+									"pm.test( \"Create a Program#1 with status code 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code name has string 'Created' \", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});\r",
+									"\r",
+									"const jsonData=JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"programName\", jsonData.programName);\r",
+									"pm.collectionVariables.set(\"programDescription\", jsonData.programDescription);\r",
+									"pm.collectionVariables.set(\"programStatus\", jsonData.programStatus);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "dfaf0283-fe5c-4063-86c1-63aade05c092",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"programDescription\": \"{{programDescriptionExcel}}\",\r\n  \"programName\": \"{{programNameExcel}}\",\r\n  \"programStatus\": \"{{programStatusExcel}}\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/saveprogram"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "c22821fe-2d1e-419c-927d-e7d9fafe661e"
+		},
+		{
+			"name": "Batch Module",
+			"item": [
+				{
+					"name": "create a new  Batch",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ca1d5b6-272c-41a2-b9d7-da3e550f5091",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									" const jsonData=JSON.parse(responseBody);\r",
+									" pm.collectionVariables.set(\"batchName\", jsonData.batchName);\r",
+									" pm.collectionVariables.set(\"batchNoOfClasses\", jsonData.batchNoOfClasses);\r",
+									" pm.collectionVariables.set(\"batchStatus\", jsonData.batchStatus);\r",
+									"pm.collectionVariables.set(\"programId\", jsonData.programId);\r",
+									"pm.collectionVariables.set(\"batchId\", jsonData.batchId);\r",
+									"\r",
+									"console.log(jsonData.batchName);\r",
+									"console.log(jsonData.batchNoOfClasses);\r",
+									"console.log(jsonData.batchStatus);\r",
+									"console.log(jsonData.programId);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f559c365-fc0a-4d1a-9135-9e0c7a06896c",
+								"exec": [
+									"const SerialNo= _.random(000,10)\r",
+									"pm.variables.set(\"SerialNo\", SerialNo )\r",
+									"\r",
+									"//const programId= _.random(50,100)\r",
+									"//pm.variables.set(\"programId\", programId )"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c135dedf-9a89-417d-950c-7f9b35e878cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"batchDescription\": \"{{batchDescription}}\",\r\n\"batchName\": \"{{batchName}}\",\r\n\"batchNoOfClasses\":\"{{batchNoOfClasses}}\",\r\n\"batchStatus\": \"{{batchStatus}}\",\r\n\"programId\":\"{{programId}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/batches"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Batch by  Batch Id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8dc242fd-75c6-4de6-98e6-cef4a02532d8",
+								"exec": [
+									"//const batchId= _.random(00,400)",
+									"//pm.variables.set(\"batchId\", batchId )"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bcd2c1d8-4018-4512-a992-8bef86c1c150",
+								"exec": [
+									"",
+									"  ",
+									"  //const expectedStatusCodes = [200, 404];",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b15ceb72-b410-4fcf-8f97-209eff016fa0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseurl}}/batches/{{batchId}}"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "4300eaf3-91b8-41ee-a87e-e91a44beb89b"
+		}
+	],
+	"variable": [
+		{
+			"id": "4e4142b2-f203-403a-ac60-eee70232cdd2",
+			"key": "baseUrl",
+			"value": "https://lms-api-hackathon-june2023-930a8b0f895d.herokuapp.com/lms",
+			"type": "string"
+		},
+		{
+			"id": "6594a63a-6728-484b-af5f-5515e7bc6075",
+			"key": "programName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c6cc766a-662a-4c84-a375-aaf2d9960286",
+			"key": "programDescription",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ccef8b5a-374f-462a-b0fa-9e5d996c023a",
+			"key": "programStatus",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "d208a3cc-86d9-46dd-89fc-8c1ad1142470",
+			"key": "programId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "d8980d31-3862-4add-8430-7b5176ceb567",
+			"key": "batchName",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "fa51b41e-68af-4357-a6e7-44c5cb0c6a42",
+			"key": "batchNoOfClasses",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "44bd7700-21a3-4dfb-89e5-f8ec65ae063a",
+			"key": "batchStatus",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "c350e1be-d8f3-44fb-9b35-5bdc8d92a8f1",
+			"key": "batchId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
